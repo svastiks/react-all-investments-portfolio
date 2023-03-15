@@ -1,5 +1,22 @@
 import React from 'react'
 
 export default function Navbar() {
-    return <h1>This is the NAVBAR!!!!</h1>   
+    return (
+        <div>
+            <nav className="navbar">
+                <li className="nav-links">
+                    <a>Home</a>
+                </li>
+                <li className="nav-links">
+                    <a>Investments</a>
+                </li>
+                <li className="nav-links">
+                    <a>APIs Used</a>
+                </li>
+                <li className="nav-links">
+                    <a>Login to save investments!</a>
+                </li>
+            </nav>
+        </div>
+    )
 }
