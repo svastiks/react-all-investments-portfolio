@@ -3,13 +3,13 @@ import reactLogo from './assets/react.svg'
 import './App.css'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { createRoot }from 'react-dom/client'
-import Navbar from '../components/Navbar'
+import { createRoot } from 'react-dom/client'
+import MainNavbar from '../components/MainNavbar'
 import HeaderText from '../components/Body'
 import FooterText from '../components/Footer'
 
 
-createRoot(document.getElementById("navbar-render")).render(<Navbar />)
+createRoot(document.getElementById("navbar-render")).render(<MainNavbar />)
 
 createRoot(document.getElementById("body-content")).render(<HeaderText />)
 
