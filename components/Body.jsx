@@ -6,7 +6,7 @@ export default function HeaderText() {
         <div className="content">
 
 
-            <h1 className="heading-content">This tool will help you track all your investments in one place</h1>
+            <h1 className="heading-content">This tool will help you track all your investments in one place.</h1>
 
 
             <div className="search-bar">
