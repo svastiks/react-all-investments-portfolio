@@ -7,7 +7,7 @@ import { createRoot } from 'react-dom/client'
 import MainNavbar from '../components/MainNavbar'
 import HeaderText from '../components/Body'
 import FooterText from '../components/Footer'
-import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+// import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
  
 
 
