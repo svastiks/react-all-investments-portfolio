@@ -1,20 +1,17 @@
-// import React from 'react'
-// import ReactDOM from 'react-dom'
-// import Navbar from '../components/Navbar'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 
-// // ReactDOM.render(<Navbar />, document.getElementById("root"))
+import App from './App';
 
-// React.createElement(<Navbar />).render(document.getElementById("root"))
 
-const options = {
-    method: 'GET',
-    headers: {
-        'X-RapidAPI-Key': '3dd95f8769msh90dd95ffcc2b051p1b50ebjsn3d1ca32d5917',
-        'X-RapidAPI-Host': 'twelve-data1.p.rapidapi.com'
-    }
-};
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
 
-// fetch('https://twelve-data1.p.rapidapi.com/stocks?exchange=NASDAQ&format=json', options)
-//     .then(response => response.json())
-//     .then(response => console.log(response))
-//     .catch(err => console.error(err));
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+
