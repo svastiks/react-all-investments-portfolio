@@ -1,0 +1,12 @@
+.search-bar{
+    text-align:center;
+    
+}
+
+.searchBar{
+    width: 250px;
+    height: 30px;
+    border: 2px solid burlywood;
+    border-radius: 10px;
+}
+
