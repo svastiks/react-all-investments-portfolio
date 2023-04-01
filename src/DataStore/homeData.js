@@ -2,6 +2,8 @@ import { create } from 'zustand'
 
 const homeData = create((set) => ({
 
+    stocks: [],
+
     fetchStocks: () => {
         const options = {
             method: 'GET',
@@ -10,11 +12,24 @@ const homeData = create((set) => ({
                 'X-RapidAPI-Host': 'twelve-data1.p.rapidapi.com'
             }
         };
+
         fetch('https://twelve-data1.p.rapidapi.com/stocks?exchange=NASDAQ&format=json', options)
             .then(response => response.json())
-            .then(response => console.log(response))
+            .then(response => {
+
+                // const stocks = response.data.map(stock => {
+                //     return {
+                //         name: stock.data.name,
+                //         symbol: stock.data.symbol
+                //     }
+                // })
+                // console.log(stocks)
+                console.log(response)
+                
+    })
             .catch(err => console.error(err));
-    }
+
+}
 
 }))
 
