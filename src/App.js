@@ -1,33 +1,25 @@
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Navbar } from './Components/navbar'
-import { Trackerlist } from './Components/trackerlist'
-import { Login } from './Components/login'
-import { Signup } from './Components/signup'
-import { Search } from './Components/search'
-import { Cards } from './Components/itemcard'
-import { useState } from 'react' 
+import Home from './Pages/Home'
+import Itemcard from './Pages/Itemcard'
 
 function App() {
   return (
-    <Router>
+    <BrowserRouter>
 
       <Navbar />
-      <Search />
-
-      <Cards />
 
       <Routes>
 
-        <Route path="/" />
-        
+        <Route index element={<Home />} />
+        <Route path="/:id" element={<Itemcard />} />
         <Route path="/trackerlist" />
-        <Route path="/expanded" />
 
       </Routes>
 
 
-    </Router>
+    </BrowserRouter>
   );
 }
 
