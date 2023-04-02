@@ -1,10 +1,12 @@
 import { create } from 'zustand'
+import axios from 'axios'
 
 const homeData = create((set) => ({
 
     stocks: [],
 
     fetchStocks: () => {
+
         const options = {
             method: 'GET',
             headers: {
@@ -15,21 +17,19 @@ const homeData = create((set) => ({
 
         fetch('https://twelve-data1.p.rapidapi.com/stocks?exchange=NASDAQ&format=json', options)
             .then(response => response.json())
-            .then(response => {
-
-                // const stocks = response.data.map(stock => {
+            .then((data) => {
+                console.log(data.data.name)
+                // const stocks = data.data.stocks.map(stock => {
                 //     return {
-                //         name: stock.data.name,
-                //         symbol: stock.data.symbol
+                //         name: stock.data.data.name,
+                //         symbol: stock.data.data.symbol
                 //     }
                 // })
                 // console.log(stocks)
-                console.log(response)
-                
-    })
+            })
             .catch(err => console.error(err));
 
-}
+    }
 
 }))
 
