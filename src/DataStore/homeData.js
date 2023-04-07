@@ -1,33 +1,30 @@
 import { create } from 'zustand'
 import axios from 'axios'
 
+let api_key = 'EVNV8OCT92UUBVRL'
 const homeData = create((set) => ({
 
-    stocks: [],
+    crypto: [],
 
-    fetchStocks: () => {
+    fetchCrypto: () => {
 
-        const options = {
-            method: 'GET',
-            headers: {
-                'X-RapidAPI-Key': '3dd95f8769msh90dd95ffcc2b051p1b50ebjsn3d1ca32d5917',
-                'X-RapidAPI-Host': 'twelve-data1.p.rapidapi.com'
-            }
-        };
-
-        fetch('https://twelve-data1.p.rapidapi.com/stocks?exchange=NASDAQ&format=json', options)
+        fetch('https://api.coingecko.com/api/v3/search/trending')
             .then(response => response.json())
-            .then((data) => {
-                console.log(data.data.name)
-                // const stocks = data.data.stocks.map(stock => {
-                //     return {
-                //         name: stock.data.data.name,
-                //         symbol: stock.data.data.symbol
-                //     }
-                // })
-                // console.log(stocks)
+            .then(res => {
+                console.log(res.coins[2].item.id)
+
+                const cryptos = res.coins.map(crypto => {
+                    return {
+                        id: crypto.item.id,
+                        name: crypto.item.name,
+                        price: crypto.item.price_btc,
+                        symbol: crypto.item.symbol
+                    }
+                })
+                console.log(cryptos)
             })
-            .catch(err => console.error(err));
+
+       
 
     }
 

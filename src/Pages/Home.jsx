@@ -7,7 +7,7 @@ export default function Home() {
 
     React.useEffect(() => {
 
-        mainData.fetchStocks()
+        mainData.fetchCrypto()
 
     }, [])
 
