@@ -3,6 +3,7 @@ import { BrowserRouter as BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Navbar } from './Components/navbar'
 import Home from './Pages/Home'
 import Itemcard from './Pages/Itemcard'
+import TrackerList from './Pages/TrackerList'
 
 function App() {
   return (
@@ -12,10 +13,10 @@ function App() {
 
       <Routes>
 
-        <Route index element={<Home />} />
-        <Route path="/:id" element={<Itemcard />} />
-        <Route path="/trackerlist" />
-
+        <Route to='/' element={<Home />} />
+        <Route path="/coin/:id" element={<Itemcard />} />
+        <Route path="/trackerlist" element={<TrackerList />}/>
+        <Route path=
       </Routes>
 
 

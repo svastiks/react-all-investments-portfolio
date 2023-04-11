@@ -1,16 +1,17 @@
 import React from 'react'
 import homeData from '../DataStore/homeData'
+import { Link } from 'react-router-dom'
+import useEffect from 'react'
 
 export default function Home() {
 
-    const mainData = homeData()
+    const data = homeData()
 
     React.useEffect(() => {
 
-        mainData.fetchCrypto()
+        console.log(data.fetchCrypto())
 
     }, [])
-
 
     return (
         <div>
@@ -22,6 +23,20 @@ export default function Home() {
                     <input className="searchBar" type="text" placeholder='Search for your investment of choice...'></input>
 
                 </div>
+
+                {/* <div className="render">
+                    {data.coins.map(crypto => {
+                        return (
+                            <div key={crypto.id}>
+                                <Link to={`/${crypto.id}`}>
+                                    {crypto.name}
+                                </Link>
+                            </div>
+                        )
+                    })}
+                </div> */}
+
+
             </div>
         </div>
     )
