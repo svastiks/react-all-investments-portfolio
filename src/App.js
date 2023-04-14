@@ -16,7 +16,7 @@ function App() {
         <Route to='/' element={<Home />} />
         <Route path="/coin/:id" element={<Itemcard />} />
         <Route path="/trackerlist" element={<TrackerList />}/>
-        <Route path=
+        {/* <Route path= */}
       </Routes>
 
 
