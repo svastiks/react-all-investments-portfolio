@@ -8,6 +8,7 @@ export const Navbar = () => {
             <div className="navbar-links">
                 <Link to='/'>Home</Link>
                 <Link to='/trackerlist'>TrackList</Link>
+                <Link to='/trending'>Trending</Link>
                 <Link to=''>Login</Link>
                 <Link>Sign Up</Link>
             </div>

@@ -1,9 +1,10 @@
 
-import { BrowserRouter as BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Navbar } from './Components/navbar'
 import Home from './Pages/Home'
 import Itemcard from './Pages/Itemcard'
 import TrackerList from './Pages/TrackerList'
+import Trending from './Components/Trending'
 
 function App() {
   return (
@@ -13,10 +14,11 @@ function App() {
 
       <Routes>
 
-        <Route to='/' element={<Home />} />
+        <Route path="/" element={<Home />} />
+        <Route path='/trending' element={<Trending />} />
         <Route path="/coin/:id" element={<Itemcard />} />
-        <Route path="/trackerlist" element={<TrackerList />}/>
-        {/* <Route path= */}
+        <Route path="/trackerlist" element={<TrackerList />} />
+        
       </Routes>
 
 
