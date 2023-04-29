@@ -5,6 +5,8 @@ import Home from './Pages/Home'
 import Itemcard from './Pages/Itemcard'
 import TrackerList from './Pages/TrackerList'
 import Trending from './Components/Trending'
+import Login from './Pages/Login'
+import Signup from './Pages/Signup'
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
         <Route path='/trending' element={<Trending />} />
         <Route path="/coin/:id" element={<Itemcard />} />
         <Route path="/trackerlist" element={<TrackerList />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         
       </Routes>
 
