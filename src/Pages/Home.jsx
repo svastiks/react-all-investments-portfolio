@@ -12,11 +12,6 @@ export default function Home() {
 
                 <Search />
 
-                <div className="trending">
-                    <Trending />
-                </div>
-
-
             </div>
         </div>
     )

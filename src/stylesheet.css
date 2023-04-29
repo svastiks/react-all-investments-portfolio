@@ -10,14 +10,5 @@
     border-radius: 10px;
 }
 
-/* TrendingCoinList */
+/* CoinList */
 
-.trending-coin-list{
-    color: black;
-    font-size: 20px;
-    border: 2px solid grey;
-}
-
-.trending-name{
-    font-size: 25px;
-}

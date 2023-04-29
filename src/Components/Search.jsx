@@ -1,35 +1,55 @@
 import useAxios from "../hooks/useAxios"
 import { useState, useEffect } from 'react'
+import axios from 'axios'
+import CoinList from '../Components/Coinlist'
 
-const getFiltered = (query, items) => {
-    if(!query){
-        return items;
+export default function Search(){
+
+    const [coins, setCoins] = useState([]);
+    const [search, setSearch] = useState('');
+
+    useEffect(() => {
+        axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=cad&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en`)
+    .then(res =>{
+        setCoins(res.data);
+        console.log(res.data);
+    }).catch(error => console.log(error));
+    }, []);
+
+    const handleChange = e =>{
+        setSearch(e.target.value);
     }
 
-    return items.filter(name => items.includes(query))
+    const filteredCoins = coins.filter(coin => 
+        coin.name.toLowerCase().includes(search.toLowerCase())
+    )
+
+    return(
+        <div className="search-coin-cont">
+        <div>
+            <input type='text' placeholder="Search for coins" className="coin-search" onChange={handleChange}></input>
+        </div>
+
+        <div className="coins">
+
+            {filteredCoins.map(coin => {
+                return(
+                <CoinList 
+                key={coin.id}
+                image={coin.image}
+                name={coin.name}
+                symbol={coin.symbol}
+                price={coin.current_price}
+                volume={coin.market_cap}
+                />
+                )
+
+            })}
+            
+        </div>
+
+        </div>
+    )
+
 }
 
-const Search = () => {
-
-    const [query, setQuery] = useState('');
-
-    const response = useAxios('search?query=bitcoin');
-    const items = response.response.coins;
-    console.log(response.response.coins);
-
-    const filteredItems = getFiltered(query, items);
-
-  return (
-    <div className="search-bar">
-        
-        <input className="searchBar" type="text" onChange={e => setQuery(e.target.value)} placeholder='Search for your investment of choice...'>
-
-        </input>
-
-        {filteredItems.map(value => <h1 key={value.name}>{value.name}</h1>)}
-
-    </div>
-  )
-}
-
-export default Search
