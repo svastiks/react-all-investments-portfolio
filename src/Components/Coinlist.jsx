@@ -1,27 +1,32 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { GlobalContext } from '../context/GlobalState';
 import TrackerList from '../Pages/TrackerList'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-const Coinlist = ({ image, name, symbol, price, volume }) => {
+const Coinlist = ({ key, image, name, symbol, price, volume }) => {
 
-    const addToList = () => {
-        <TrackerList
-            name={name}
-        />
-        { console.log('Added'); }
-    }
+    // const addToList = () => {
+    //     <TrackerList
+    //         name={name}
+    //     />
+    //     { console.log('Added'); }
+    // }
+
+    const {
+        addCryptoToTrackList
+    } = useContext(GlobalContext)
 
     return (
 
         <Container>
-            <Row>
+            <Row className='coin-list-cont'>
                 <Col xs={2}>
                     <img className='coin-image' src={image} alt='symbol'></img>
                 </Col>
                 <Col xs={2}>
-                    <h1>{name}</h1>
+                    <p>{name}</p>
                 </Col>
                 <Col xs={2}>
                     <p>{symbol}</p>
@@ -32,6 +37,11 @@ const Coinlist = ({ image, name, symbol, price, volume }) => {
                 <Col xs={2}>
                     <p>{volume.toLocaleString()}</p>
                 </Col>
+            </Row>
+            <Row>
+                <div className="trackerlist-btn">
+                    <button onClick={() => addCryptoToTrackList(key)}>Add to Tracker List</button>
+                </div>
             </Row>
         </Container>
 

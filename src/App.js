@@ -8,25 +8,29 @@ import Trending from './Components/Trending'
 import Login from './Pages/Login'
 import Signup from './Pages/Signup'
 
+import { GlobalProvider } from './context/GlobalState';
+
 function App() {
   return (
-    <BrowserRouter>
+    <GlobalProvider>
+      <BrowserRouter>
 
-      <Navbar />
+        <Navbar />
 
-      <Routes>
+        <Routes>
 
-        <Route path="/" element={<Home />} />
-        <Route path='/trending' element={<Trending />} />
-        <Route path="/coin/:id" element={<Itemcard />} />
-        <Route path="/trackerlist" element={<TrackerList />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+          <Route path="/" element={<Home />} />
+          <Route path='/trending' element={<Trending />} />
+          <Route path="/coin/:id" element={<Itemcard />} />
+          <Route path="/trackerlist" element={<TrackerList />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
 
-      </Routes>
+        </Routes>
 
 
-    </BrowserRouter>
+      </BrowserRouter>
+    </GlobalProvider>
   );
 }
 

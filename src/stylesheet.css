@@ -5,13 +5,34 @@ body {
 
 /* Home/Search Page */
 
+.mainpage {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.coin-list-cont {
+    border: 2px solid lightsteelblue;
+    margin-bottom: 20px;
+}
+
 .coin-image {
     width: 50px;
 }
 
 .search-bar {
     text-align: center;
+    display: flex;
+    justify-content: center;
+    margin: 30px 0 40px 0;
+}
 
+.coin-search {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: auto;
 }
 
 .searchBar {
@@ -24,8 +45,8 @@ body {
 /* CoinList */
 
 .navbar {
-    background-color: black;
-    height: 30px;
+    background-color: cadetblue;
+    height: 45px;
     padding: 10px;
 }
 
