@@ -22,7 +22,7 @@ function App() {
         <Route path="/trackerlist" element={<TrackerList />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        
+
       </Routes>
 
 
