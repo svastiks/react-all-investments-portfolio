@@ -78,10 +78,10 @@ const TrackerList = (props) => {
                   {data.symbol}
                 </Col>
                 <Col>
-                  {data.price}
+                  {data.price.toLocaleString()}
                 </Col>
                 <Col>
-                  {data.marketCap}
+                  {data.marketCap.toLocaleString()}
                 </Col>
                 <Col>
                   <button onClick={() => removeCoin(data.name)}></button>

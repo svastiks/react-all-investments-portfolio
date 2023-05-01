@@ -57,10 +57,12 @@ body {
     margin-bottom: 20px;
 }
 
-.trackerlist-btn button {
-    border-radius: 15px;
+.trackerlist-btn {
+    border-radius: 20px;
+    width: 115px;
     height: 30px;
     margin-bottom: 20px;
+    margin-right: 10px;
 }
 
 .coinlist-image {
