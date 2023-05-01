@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { GlobalContext } from '../context/GlobalState';
 import TrackerList from '../Pages/TrackerList'
 import Container from 'react-bootstrap/Container';
@@ -30,6 +30,10 @@ const Coinlist = (coin) => {
         window.location.reload(true);
     }
 
+    useEffect(() => {
+        setDisabled(localStorage.getItem(coin.id) !== null)
+    }, [coin.id])
+
     return (
 
         <Container className='coin-maincont'>
@@ -43,18 +47,22 @@ const Coinlist = (coin) => {
                     </Col>
                     <Col xs={12}>
                         <button id='add-btn' className='trackerlist-btn' onClick={() => send(coin)} disabled={isDisabled}>Track</button>
-                        <button id='remove-btn' className='trackerlist-btn' onClick={() => removeCoin(coin.id)}>Remove</button>
+                        <button id='remove-btn' className='trackerlist-btn' onClick={() => removeCoin(coin.id)} disabled={!isDisabled}>Remove</button>
                     </Col>
                 </Row>
                 {/* <Col xs={2}>
                     <p>{coin.symbol}</p>
                 </Col> */}
                 <Row>
-                    <Col className='coin-price' xs={8}>
+                    <Col className='coin-price' xs={5}>
                         <span className='price-heading'>Price</span>
-                        <p>{coin.price.toLocaleString()}</p>
+                        <br />
+                        {coin.price.toLocaleString()}
+                    </Col>
+                    <Col className='coin-price' xs={4}>
                         <span className='marketcap-heading'>Market Cap</span>
-                        <p>{coin.volume.toLocaleString()}</p>
+                        <br />
+                        {coin.volume.toLocaleString()}
                     </Col>
                 </Row>
                 {/* <Col xs={2}>
@@ -66,7 +74,7 @@ const Coinlist = (coin) => {
                     <button onClick={() => send(coin.id)}>Add to Tracker List</button>
                 </div>
             </Row> */}
-        </Container>
+        </Container >
         // </Container>
     )
 }

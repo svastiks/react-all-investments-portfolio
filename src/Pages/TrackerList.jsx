@@ -49,13 +49,6 @@ const TrackerList = (props) => {
     localStorage.removeItem(id);
 
     window.location.reload(true);
-
-    // setDataArray((prevDataArray) => {
-    //   const updateDataArray = { ...prevDataArray };
-    //   delete updateDataArray[id];
-    //   return updateDataArray;
-    // })
-
   }
 
   return (

@@ -3,6 +3,7 @@ body {
     overflow-x: hidden;
     /* background-color: #D3D3D3 !important; */
     color: #FFF;
+    /* font-family: ; */
 }
 
 /* Home/Search Page */
@@ -74,7 +75,7 @@ body {
 }
 
 .coin-price {
-    margin-top: 35px !important;
+    /* margin-top: 35px !important; */
     color: green;
     text-align: right;
 }
