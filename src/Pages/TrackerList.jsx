@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react'
 import axios, { all } from 'axios'
 import Container from 'react-bootstrap/Container';
+import Chart from '../Components/Chart'
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
@@ -79,6 +80,12 @@ const TrackerList = (props) => {
                 <Col>
                   <button onClick={() => removeCoin(data.name)}></button>
                 </Col>
+                <Row>
+                  <Chart
+                    key={data.name}
+                    id={data.name}
+                  />
+                </Row>
               </Row>
             </Container>
           )

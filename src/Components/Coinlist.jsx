@@ -57,7 +57,7 @@ const Coinlist = (coin) => {
                     <Col className='coin-price' xs={5}>
                         <span className='price-heading'>Price</span>
                         <br />
-                        {coin.price.toLocaleString()}
+                        {coin.price.toLocaleString()} CAD
                     </Col>
                     <Col className='coin-price' xs={4}>
                         <span className='marketcap-heading'>Market Cap</span>
