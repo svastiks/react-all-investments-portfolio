@@ -5,71 +5,58 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-const Coinlist = ({ key, image, name, symbol, price, volume }) => {
+const Coinlist = (coin) => {
 
-    // const addToList = () => {
-    //     <TrackerList
-    //         name={name}
-    //     />
-    //     { console.log('Added'); }
-    // }
+    const send = () => {
+        // let count = 0;
+        // count++
+        const array = [coin.id, coin.image, coin.name, coin.symbol, coin.price, coin.volume];
+        { localStorage.setItem(`${coin.id}`, JSON.stringify(array)) }
 
-    const {
-        addCryptoToTrackList
-    } = useContext(GlobalContext)
+        // { console.log('being clicked'); }
+    }
 
     return (
 
-        <Container>
-            <Row className='coin-list-cont'>
-                <Col xs={2}>
-                    <img className='coin-image' src={image} alt='symbol'></img>
+        // <Container>
+        //     <table className='coin-list-heading'>
+        //         <tbody>
+        //             <tr>
+        //                 <th>Name</th>
+        //                 <th>Symbol</th>
+        //                 <th>Price</th>
+        //                 <th>Market Cap</th>
+        //             </tr>
+        //         </tbody>
+        //     </table>
+        <Container className='coin-maincont'>
+            <Row className='coin-listsubcont'>
+                <Col className='coinlist-image' xs={2}>
+                    <img className='coin-image' src={coin.image} alt='symbol'></img>
                 </Col>
-                <Col xs={2}>
-                    <p>{name}</p>
+                <Col className='coinlist-name' xs={2}>
+                    <p>{coin.name}({coin.symbol})</p>
                 </Col>
-                <Col xs={2}>
-                    <p>{symbol}</p>
+                {/* <Col xs={2}>
+                    <p>{coin.symbol}</p>
+                </Col> */}
+                <Col className='coin-price' xs={8}>
+                    Price:
+                    <p>{coin.price.toLocaleString()}</p>
+                    Market Cap:
+                    <p>{coin.volume.toLocaleString()}</p>
                 </Col>
-                <Col xs={2}>
-                    <p>{price}</p>
-                </Col>
-                <Col xs={2}>
-                    <p>{volume.toLocaleString()}</p>
-                </Col>
+                {/* <Col xs={2}>
+                    <p>{coin.volume.toLocaleString()}</p>
+                </Col> */}
             </Row>
             <Row>
                 <div className="trackerlist-btn">
-                    <button onClick={() => addCryptoToTrackList(key)}>Add to Tracker List</button>
+                    <button onClick={() => send(coin.id)}>Add to Tracker List</button>
                 </div>
             </Row>
         </Container>
-
-        // <div className="coin-cont row">
-
-        //     <div className="coin-list">
-        //         <div className="col">
-        //             <img className='coin-image' src={image} alt='symbol'></img>
-        //         </div>
-        //         <div className="col">
-        //             <h1>{name}</h1>
-        //         </div>
-        //         <div className="col">
-        //             <p>{symbol}</p>
-        //         </div>
-        //         <div className="col">
-        //             <p>{price}</p>
-        //         </div>
-        //         <div className="col">
-        //             <p>{volume.toLocaleString()}</p>
-        //         </div>
-        //     </div>
-
-        //     <div className="trackerlist-btn">
-        //         <button onClick={addToList}>Add to Tracker List</button>
-        //     </div>
-
-        // </div>
+        // </Container>
     )
 }
 

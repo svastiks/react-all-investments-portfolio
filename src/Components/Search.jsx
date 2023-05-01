@@ -36,6 +36,7 @@ export default function Search() {
                     return (
                         <CoinList
                             key={coin.id}
+                            id={coin.id}
                             image={coin.image}
                             name={coin.name}
                             symbol={coin.symbol}

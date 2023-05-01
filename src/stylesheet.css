@@ -1,6 +1,8 @@
 body {
     margin: 0;
     overflow-x: hidden;
+    /* background-color: #D3D3D3 !important; */
+    color: #FFF;
 }
 
 /* Home/Search Page */
@@ -8,11 +10,6 @@ body {
 .mainpage {
     text-align: center;
     margin-top: 15px;
-}
-
-.coin-list-cont {
-    border: 2px solid lightsteelblue;
-    margin-bottom: 20px;
 }
 
 .coin-image {
@@ -31,8 +28,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
+    width: 75%;
     margin: auto;
+    border-radius: 20px;
+    height: 40px;
 }
 
 .searchBar {
@@ -42,7 +41,48 @@ body {
     border-radius: 10px;
 }
 
-/* CoinList */
+.coin-list-heading tbody tr th {
+    padding-left: 10px;
+}
+
+.coin-maincont {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin-bottom: 30px;
+    /* background-color: #FFF; */
+    color: black;
+    border-radius: 15px;
+}
+
+.coin-listsubcont {
+    margin-bottom: 20px;
+}
+
+.trackerlist-btn button {
+    border-radius: 15px;
+    height: 30px;
+    margin-bottom: 20px;
+}
+
+.coinlist-image {
+    margin-top: 25px !important;
+}
+
+.coinlist-name {
+    margin-top: 35px !important;
+}
+
+.coin-price {
+    margin-top: 35px !important;
+    color: green;
+    text-align: right;
+}
+
+.price-heading,
+.marketcap-heading {
+    color: #000;
+}
+
+/* Navbar */
 
 .navbar {
     background-color: cadetblue;
@@ -63,4 +103,10 @@ body {
     padding: 40px;
     text-align: center;
     margin-top: 200px;
+}
+
+/* TrackerList */
+
+.tracker-coinImage {
+    width: 45px;
 }
