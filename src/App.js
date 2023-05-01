@@ -1,6 +1,6 @@
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { Navbar } from './Components/navbar'
+import Navbar from './Components/Navbar'
 import Home from './Pages/Home'
 import Itemcard from './Pages/Itemcard'
 import TrackerList from './Pages/TrackerList'
