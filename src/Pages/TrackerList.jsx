@@ -56,29 +56,30 @@ const TrackerList = (props) => {
 
     <div className="tracker-list-cont">
       <div className="tracker-list">
-        HERE WE WILL HAVE ALL THE TRACKED USER INVESTMENTS
-
+        <div className='tracked-heading'>
+          TRACKED USER INVESTMENTS
+        </div>
         {dataArray.map((data) => {
           return (
-            <Container id={data.name}>
-              <Row>
-                <Col>
+            <Container className='mapped-list' id={data.name}>
+              <Row className='list-row'>
+                <Col className='list-image'>
                   <img className='tracker-coinImage' src={data.image} alt='coinImage'></img>
                 </Col>
-                <Col>
+                <Col className='list-name'>
                   {data.name}
                 </Col>
-                <Col>
+                <Col className='list-symbol'>
                   {data.symbol}
                 </Col>
-                <Col>
+                <Col className='list-price'>
                   {data.price.toLocaleString()}
                 </Col>
-                <Col>
+                {/* <Col>
                   {data.marketCap.toLocaleString()}
-                </Col>
+                </Col> */}
                 <Col>
-                  <button onClick={() => removeCoin(data.name)}></button>
+                  <button className='listRemove' onClick={() => removeCoin(data.name)}>Remove</button>
                 </Col>
                 <Row>
                   <Chart

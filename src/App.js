@@ -9,6 +9,7 @@ import Login from './Pages/Login'
 import Signup from './Pages/Signup'
 
 import { GlobalProvider } from './context/GlobalState';
+import SearchStocks from './Components/SearchStocks'
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
         <Routes>
 
           <Route path="/" element={<Home />} />
-          <Route path='/trending' element={<Trending />} />
+          <Route path='/stocks' element={<SearchStocks />} />
           <Route path="/coin/:id" element={<Itemcard />} />
           <Route path="/trackerlist" element={<TrackerList />} />
           <Route path="/login" element={<Login />} />
