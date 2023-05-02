@@ -35,9 +35,11 @@ const SearchStocks = () => {
     return (
         <div>
 
-            <div className="search-bar">
+            <h1>THIS PAGE IS IN PROGRESS....</h1>
+
+            {/* <div className="search-bar">
                 <input type='text' placeholder="Search for stocks" className="stock-search" onChange={handleChange}></input>
-            </div>
+            </div> */}
 
             {/* {filteredStocks.map(stock => {
                 return (
