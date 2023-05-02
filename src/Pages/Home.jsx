@@ -10,9 +10,9 @@ export default function Home() {
     return (
         <div>
 
-            <h1>Hello
-                {/* {location.state.id} */}
-                , welcome back!!</h1>
+            {/* <h1>Hello
+                {location.state.id}
+                , welcome back!!</h1> */}
 
             <div className="mainpage">
                 <h1>Track all your crypto investments in one place.</h1>
