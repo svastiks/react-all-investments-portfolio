@@ -52,7 +52,7 @@ body {
     text-align: center;
     display: flex;
     justify-content: center;
-    margin: 30px 0 40px 0;
+    margin: 30px 0 60px 0;
 }
 
 .coin-search {
@@ -63,7 +63,18 @@ body {
     width: 75%;
     margin: auto;
     border-radius: 20px;
-    height: 40px;
+    height: 50px;
+    background: #F7F7F7;
+    box-shadow: -4px 4px 18px rgba(0, 0, 0, 0.09);
+    border-radius: 10px;
+    border: transparent;
+    color: black;
+    margin-top: 15px;
+}
+
+.coin-search::placeholder {
+    color: black;
+    font-weight: 600;
 }
 
 .searchBar {
@@ -168,13 +179,17 @@ body {
     /* background-color: cadetblue; */
     height: 45px;
     padding: 10px;
+    padding-bottom: 60px;
     margin-top: 10px;
+    margin-bottom: 35px;
+    border-bottom: 2px solid slategray;
 }
 
 .navbar-links a {
     color: #000;
     text-decoration: none;
-    padding: 8px;
+    padding-left: 15px;
+    font-weight: 700;
 }
 
 /* Stocks Page */
@@ -246,6 +261,17 @@ body {
     margin-top: -20px;
 }
 
+.logoutLink {
+    font-size: 23px;
+    padding-left: 30px !important;
+}
+
+.logout-icon {
+    width: 35px;
+    margin-top: -10px;
+    padding-left: 10px;
+}
+
 /* TrackerList */
 
 .tracker-coinImage {
@@ -267,15 +293,15 @@ body {
 }
 
 .listRemove {
-    border-radius: 5px;
-    border: transparent;
-    width: 75px;
-    display: flex;
-    height: 30px;
-    margin-top: 5px;
-    background-color: red;
+    background: orangered;
+    box-shadow: -4px 4px 18px rgba(0, 0, 0, 0.09);
+    height: 40px;
     color: white;
-    justify-content: center;
+    border: transparent;
+    width: 115px;
+    margin-bottom: 20px;
+    border: transparent;
+    border-radius: 10px;
 }
 
 .list-row {

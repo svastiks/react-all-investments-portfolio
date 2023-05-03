@@ -28,7 +28,7 @@ export default function Navbar() {
                 <Link to='/stocks'>Stocks</Link>
                 {loginStatus ? null : <Link to='/register'>Sign Up</Link>}
                 {loginStatus ? null : <Link to='/login'>Login</Link>}
-                {loginStatus ? <Link to='/' onClick={logout}>Logout</Link> : null}
+                {loginStatus ? <Link className="logoutLink" to='/' onClick={logout}>Logout<img className='logout-icon' src='Images/logout-icon.svg' alt='logout-icon'></img></Link> : null}
             </div>
         </div>
 

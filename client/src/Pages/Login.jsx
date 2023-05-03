@@ -45,7 +45,7 @@ export default function Login() {
 
       setTimeout(() => {
         window.location.href = '/'
-      }, 2000)
+      }, 1000)
 
     }
     else {
