@@ -16,12 +16,12 @@ const Coinlist = (coin) => {
     const send = () => {
         const array = [coin.id, coin.image, coin.name, coin.symbol, coin.price, coin.volume];
         localStorage.setItem(`${coin.id}`, JSON.stringify(array));
-        console.log('Works');
+        //console.log('Works');
 
         if (localStorage.getItem(coin.id) != null) {
             setDisabled(true);
             setDisabledRemove(false);
-            console.log('Disabled');
+            //console.log('Disabled');
         }
         else {
             setDisabled(false);

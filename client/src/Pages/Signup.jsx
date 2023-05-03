@@ -22,10 +22,13 @@ export default function Home() {
         })
 
         const data = await res.json();
-        console.log(data);
+        //console.log(data);
 
         if (data.status === 'error') {
             alert('An account with this email already exists!!')
+        }
+        else {
+            window.location.href = '/login'
         }
     }
 

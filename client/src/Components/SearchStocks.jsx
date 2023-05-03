@@ -20,7 +20,7 @@ const SearchStocks = () => {
         axios.get(`https://finnhub.io/api/v1/search?q=apple&token=${api_key}`)
             .then(res => {
                 setStocks(res.data);
-                console.log(res.data);
+                //console.log(res.data);
             }).catch(error => console.log(error));
     }, []);
 

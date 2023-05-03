@@ -19,9 +19,9 @@ const TrackerList = (props) => {
 
   const allItems = { ...localStorage };
   // const item = JSON.parse(allItems);
-  console.log(allItems);
+  //console.log(allItems);
   const itemKeys = Object.keys(allItems);
-  console.log(itemKeys);
+  //console.log(itemKeys);
 
   const [dataArray, setDataArray] = useState([])
 
@@ -44,7 +44,7 @@ const TrackerList = (props) => {
     setDataArray(newDataArray);
   }, [])
 
-  console.log(dataArray);
+  //console.log(dataArray);
 
   const removeCoin = (id) => {
     localStorage.removeItem(id);
