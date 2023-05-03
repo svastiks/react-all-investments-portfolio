@@ -188,8 +188,8 @@ body {
 .navbar-links a {
     color: #000;
     text-decoration: none;
-    padding-left: 15px;
-    font-weight: 700;
+    padding-left: 10px;
+    font-weight: 650;
 }
 
 /* Stocks Page */
@@ -208,10 +208,17 @@ body {
     margin-top: -20px;
 }
 
-.login-cont,
+.login-cont {
+    text-align: center;
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .signup-cont {
     text-align: center;
-    margin-top: 200px;
+    margin-top: 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -265,7 +272,7 @@ body {
 }
 
 .logoutLink {
-    font-size: 23px;
+    font-size: 20px;
     padding-left: 30px !important;
 }
 
@@ -273,6 +280,44 @@ body {
     width: 35px;
     margin-top: -10px;
     padding-left: 10px;
+}
+
+.after-signup {
+    text-align: center;
+}
+
+.no-account {
+    margin-top: 30px;
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.success-create {
+    color: green;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.error-create {
+    color: red;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.sucess-links {
+    font-size: 15px;
+}
+
+.login-unsuccessful {
+    color: red;
+    margin-top: 20px;
+}
+
+.login-successful {
+    color: green;
+    margin-top: 20px;
 }
 
 /* TrackerList */

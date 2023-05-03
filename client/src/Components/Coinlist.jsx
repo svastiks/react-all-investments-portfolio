@@ -9,8 +9,8 @@ import { isDisabled } from '@testing-library/user-event/dist/utils';
 
 const Coinlist = (coin) => {
 
-    const [isDisabled, setDisabled] = useState(false);
-    const [isDisabledRemove, setDisabledRemove] = useState(false);
+    const [isDisabled, setDisabled] = useState('');
+    const [isDisabledRemove, setDisabledRemove] = useState('');
 
 
     const send = () => {
@@ -31,6 +31,8 @@ const Coinlist = (coin) => {
 
     const removeCoin = (id) => {
         localStorage.removeItem(id);
+        setDisabledRemove(true);
+        setDisabled(false);
 
         // window.location.reload(true);
     }

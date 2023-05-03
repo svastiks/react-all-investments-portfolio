@@ -2,14 +2,17 @@ import { useState, useEffect } from 'react'
 // const jwt = require('jsonwebtoken')
 // import jwt from 'jsonwebtoken'
 // import crypto from 'crypto'
+import { Link } from 'react-router-dom'
 
 const Buffer = require('buffer').Buffer;
-
 
 export default function Login() {
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [login, setLogin] = useState(true)
+  const [loginDone, setLoginDone] = useState(false)
+
 
   async function loginUser(event) {
     event.preventDefault();
@@ -26,6 +29,20 @@ export default function Login() {
     })
 
     const data = await response.json()
+    console.log(data)
+
+    if (data.status !== 'error') {
+      setLoginDone(true)
+      sessionStorage.setItem('Login', 'LoggedIn');
+      setTimeout(() => {
+        window.location.href = '/'
+      }, 700)
+      setLogin(true)
+    }
+    else {
+      setLogin(false)
+      setLoginDone(false)
+    }
 
     const token = data.user;
     const payload = token.split('.')[1];
@@ -37,20 +54,6 @@ export default function Login() {
     const jsonPayload = JSON.parse(decodedPayload);
 
     sessionStorage.setItem('name', jsonPayload.name)
-
-    if (data.user) {
-      alert('Login successful')
-
-      sessionStorage.setItem('Login', 'LoggedIn');
-
-      setTimeout(() => {
-        window.location.href = '/'
-      }, 1000)
-
-    }
-    else {
-      alert('Please check your username and password')
-    }
 
   }
 
@@ -68,6 +71,11 @@ export default function Login() {
           <input className="password" value={password} type="password" placeholder="Password" onChange={(e) => (setPassword(e.target.value))}></input> <br></br>
 
           <input className="login-btn" type="submit" value="Login"></input>
+
+          {login ? null : <h4 className="login-unsuccessful">Email or password entered is incorrect. <br></br>Please try again.</h4>}
+          {loginDone ? <h2 className='login-successful'>LOGIN SUCCESSFUL!</h2> : null}
+
+          <Link className='no-account' to='/register'>Don't have an account? Sign up here</Link>
         </div>
       </form>
 
