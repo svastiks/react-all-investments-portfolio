@@ -26,8 +26,9 @@ export default function Home() {
 
                 <h2 className='welcome'>Hello {nameExists ? sessionStorage.getItem('name') : 'user'}, welcome back!!</h2>
 
-                <h6>Please <Link to='/signin'> Sign in </Link>to keep your tracked investments intact.</h6>
-
+                {nameExists ? null :
+                    <h7>Please <Link className="home-signin" to='/login'> Sign in </Link>to keep your tracked investments intact.</h7>
+                }
                 <Search />
 
             </div>

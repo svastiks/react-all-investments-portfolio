@@ -6,9 +6,12 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { isDisabled } from '@testing-library/user-event/dist/utils';
 
+
 const Coinlist = (coin) => {
 
     const [isDisabled, setDisabled] = useState(false);
+    const [isDisabledRemove, setDisabledRemove] = useState(true);
+
 
     const send = () => {
         const array = [coin.id, coin.image, coin.name, coin.symbol, coin.price, coin.volume];
@@ -17,17 +20,20 @@ const Coinlist = (coin) => {
 
         if (localStorage.getItem(coin.id) != null) {
             setDisabled(true);
+            setDisabledRemove(false);
             console.log('Disabled');
         }
         else {
             setDisabled(false);
+            setDisabledRemove(true);
         }
     }
 
     const removeCoin = (id) => {
         localStorage.removeItem(id);
-
-        window.location.reload(true);
+        setDisabledRemove(true);
+        setDisabled(false);
+        // window.location.reload(true);
     }
 
     useEffect(() => {
@@ -46,8 +52,8 @@ const Coinlist = (coin) => {
                         <p>{coin.name}({coin.symbol})</p>
                     </Col>
                     <Col xs={12}>
-                        <button id='add-btn' className='trackerlist-btn' onClick={() => send(coin)} disabled={isDisabled}>Track</button>
-                        <button id='remove-btn' className='trackerlist-delete-btn' onClick={() => removeCoin(coin.id)} disabled={!isDisabled}>Remove</button>
+                        <button id='add-btn' className={isDisabled ? "disabled-button" : "trackerlist-btn"} onClick={() => send(coin)} disabled={isDisabled}>Track</button>
+                        <button id='remove-btn' className={isDisabledRemove ? "disabled-button-remove" : "trackerlist-delete-btn"} onClick={() => removeCoin(coin.id)} disabled={!isDisabled}>Remove</button>
                     </Col>
                 </Row>
                 {/* <Col xs={2}>

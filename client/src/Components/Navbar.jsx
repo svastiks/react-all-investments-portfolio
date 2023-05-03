@@ -15,6 +15,7 @@ export default function Navbar() {
         sessionStorage.clear();
         alert('You have been logged out!!')
         setLoginStatus(false)
+        window.location.href = '/'
     }
 
     return (
@@ -25,9 +26,9 @@ export default function Navbar() {
                 <Link to='/'>Home</Link>
                 <Link to='/trackerlist'>TrackList</Link>
                 <Link to='/stocks'>Stocks</Link>
+                {loginStatus ? null : <Link to='/register'>Sign Up</Link>}
                 {loginStatus ? null : <Link to='/login'>Login</Link>}
                 {loginStatus ? <Link to='/' onClick={logout}>Logout</Link> : null}
-                <Link to='/register'>Sign Up</Link>
             </div>
         </div>
 
