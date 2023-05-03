@@ -1,0 +1,165 @@
+body {
+    margin: 0;
+    overflow-x: hidden;
+    /* background-color: #D3D3D3 !important; */
+    color: #FFF;
+    /* font-family: ; */
+}
+
+.main-logo {
+    width: 40px;
+}
+
+/* Home/Search Page */
+
+.welcome {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.api-error {
+    margin-top: 140px;
+    color: red;
+}
+
+.mainpage {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.coin-image {
+    width: 50px;
+}
+
+.search-bar {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    margin: 30px 0 40px 0;
+}
+
+.coin-search {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75%;
+    margin: auto;
+    border-radius: 20px;
+    height: 40px;
+}
+
+.searchBar {
+    width: 250px;
+    height: 30px;
+    border: 2px solid burlywood;
+    border-radius: 10px;
+}
+
+.coin-list-heading tbody tr th {
+    padding-left: 10px;
+}
+
+.coin-maincont {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin-bottom: 30px;
+    /* background-color: #FFF; */
+    color: black;
+    border-radius: 15px;
+}
+
+.coin-listsubcont {
+    margin-bottom: 20px;
+}
+
+.trackerlist-btn {
+    border-radius: 20px;
+    width: 115px;
+    height: 30px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+
+.coinlist-image {
+    margin-top: 25px !important;
+}
+
+.coinlist-name {
+    margin-top: 35px !important;
+}
+
+.coin-price {
+    /* margin-top: 35px !important; */
+    color: green;
+    text-align: right;
+}
+
+.price-heading,
+.marketcap-heading {
+    color: #000;
+}
+
+/* Navbar */
+
+.navbar {
+    /* background-color: cadetblue; */
+    height: 45px;
+    padding: 10px;
+}
+
+.navbar-links a {
+    color: #000;
+    text-decoration: none;
+    padding: 8px;
+}
+
+/* Login Page */
+
+.login-cont {
+    border: 2px solid black;
+    padding: 40px;
+    text-align: center;
+    margin-top: 200px;
+}
+
+/* TrackerList */
+
+.tracker-coinImage {
+    width: 45px;
+}
+
+.tracked-heading {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.mapped-list {
+    margin-bottom: 40px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 7px;
+    border-radius: 10px;
+}
+
+.listRemove {
+    border-radius: 5px;
+    border: transparent;
+    width: 75px;
+    display: flex;
+    height: 30px;
+    margin-top: 5px;
+    background-color: red;
+    color: white;
+    justify-content: center;
+}
+
+.list-row {
+    padding-top: 20px;
+}
+
+.list-name,
+.list-symbol,
+.list-price {
+    font-weight: 600;
+}
