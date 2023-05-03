@@ -14,7 +14,7 @@ export default function Search() {
             .then(res => {
                 setCoins(res.data);
                 console.log(res.data);
-                apiStatus(true);
+                setApiStatus(true);
             }).catch(error => {
 
                 console.log(error)

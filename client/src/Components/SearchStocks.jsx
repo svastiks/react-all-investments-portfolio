@@ -35,7 +35,7 @@ const SearchStocks = () => {
     return (
         <div>
 
-            <h1>THIS PAGE IS IN PROGRESS....</h1>
+            <h1 className="stocks-heading">THIS PAGE IS CURRENTLY IN PROGRESS....</h1>
 
             {/* <div className="search-bar">
                 <input type='text' placeholder="Search for stocks" className="stock-search" onChange={handleChange}></input>

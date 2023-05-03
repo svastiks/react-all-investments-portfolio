@@ -2,6 +2,8 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import Trending from '../Components/Trending'
 import Search from '../Components/Search'
+import { Link } from 'react-router-dom'
+
 // import { useHistory } from 'react-router-dom'
 // import jwt from 'jsonwebtoken'
 
@@ -18,12 +20,13 @@ export default function Home() {
     return (
         <div>
 
-            <h1 className='welcome'>Hello {nameExists ? sessionStorage.getItem('name') : 'user'}, welcome back!!</h1>
 
             <div className="mainpage">
-                <h1>Track all your crypto investments in one place.</h1>
+                <h1>Track your crypto investments in one place.</h1>
 
-                <h2>Please Sign in to keep your tracked investments intact.</h2>
+                <h2 className='welcome'>Hello {nameExists ? sessionStorage.getItem('name') : 'user'}, welcome back!!</h2>
+
+                <h6>Please <Link to='/signin'> Sign in </Link>to keep your tracked investments intact.</h6>
 
                 <Search />
 

@@ -1,7 +1,7 @@
 body {
     margin: 0;
     overflow-x: hidden;
-    /* background-color: #D3D3D3 !important; */
+    background-color: #FFFFFF !important;
     color: #FFF;
     /* font-family: ; */
 }
@@ -73,11 +73,28 @@ body {
 }
 
 .trackerlist-btn {
-    border-radius: 20px;
     width: 115px;
-    height: 30px;
     margin-bottom: 20px;
     margin-right: 10px;
+    /* background-color: green; */
+    box-shadow: -4px 4px 18px rgba(0, 0, 0, 0.09);
+    border-radius: 10px;
+    height: 40px;
+    color: black;
+    border: 2px solid black;
+}
+
+.trackerlist-delete-btn {
+    /* background: orangered; */
+    box-shadow: -4px 4px 18px rgba(0, 0, 0, 0.09);
+    height: 40px;
+    color: black;
+    border: transparent;
+    width: 115px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
 }
 
 .coinlist-image {
@@ -105,6 +122,7 @@ body {
     /* background-color: cadetblue; */
     height: 45px;
     padding: 10px;
+    margin-top: 10px;
 }
 
 .navbar-links a {
@@ -113,13 +131,73 @@ body {
     padding: 8px;
 }
 
-/* Login Page */
+/* Stocks Page */
 
-.login-cont {
-    border: 2px solid black;
-    padding: 40px;
+.stocks-heading {
+    margin-top: 300px;
+    text-align: center;
+    color: red;
+}
+
+/* Login Page and SIGN UP PAGE*/
+
+.login-logo {
+    width: 150px;
+    margin-bottom: 50px;
+    margin-top: -20px;
+}
+
+.login-cont,
+.signup-cont {
     text-align: center;
     margin-top: 200px;
+}
+
+.email,
+.signup-email,
+.signup-name {
+    width: 322px;
+    height: 60px;
+    left: 53px;
+    top: 403px;
+    margin-bottom: 40px;
+    border: transparent;
+    background: #F7F7F7;
+    box-shadow: -4px 4px 18px rgba(0, 0, 0, 0.09);
+    border-radius: 10px;
+}
+
+.password,
+.signup-password {
+    width: 322px;
+    height: 60px;
+    left: 52px;
+    top: 495px;
+    border: transparent;
+    background: #F7F7F7;
+    box-shadow: -4px 4px 18px rgba(0, 0, 0, 0.09);
+    border-radius: 10px;
+}
+
+.login-btn,
+.signup-btn {
+    margin-top: 40px;
+    width: 150px;
+    height: 50px;
+    border: transparent;
+    background: #323232;
+    box-shadow: -4px 4px 18px rgba(0, 0, 0, 0.09);
+    border-radius: 10px;
+    color: #FFFFFF;
+}
+
+.login-heading {
+    margin-bottom: 30px;
+}
+
+.signup-header {
+    margin-bottom: 40px;
+    margin-top: -20px;
 }
 
 /* TrackerList */
@@ -163,3 +241,5 @@ body {
 .list-price {
     font-weight: 600;
 }
+
+/* Login */

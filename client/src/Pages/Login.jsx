@@ -56,17 +56,22 @@ export default function Login() {
 
   return (
 
-    <div>
-      <h1>Login</h1>
+    <div className='login-body'>
+
       <form onSubmit={loginUser}>
+        <div className="login-cont">
+          <img className='login-logo' src='Images/logo.png' alt='logo'></img>
 
-        <input value={email} type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)}></input> <br></br>
+          {/* <h1 className="login-heading">Login</h1> */}
+          <input className="email" value={email} type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)}></input> <br></br>
 
-        <input value={password} type="password" placeholder="Password" onChange={(e) => (setPassword(e.target.value))}></input> <br></br>
+          <input className="password" value={password} type="password" placeholder="Password" onChange={(e) => (setPassword(e.target.value))}></input> <br></br>
 
-        <input type="submit" value="Login"></input>
+          <input className="login-btn" type="submit" value="Login"></input>
+        </div>
       </form>
-    </div>
+
+    </div >
 
   )
 }

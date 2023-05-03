@@ -31,16 +31,16 @@ export default function Home() {
 
     return (
 
-        <div>
-            <h1>Register</h1>
+        <div className="signup-cont">
+            <h1 className="signup-header">Register</h1>
             <form onSubmit={registerUser}>
-                <input value={name} type="text" placeholder="Name" onChange={(e) => setName(e.target.value)}></input> <br></br>
+                <input className="signup-name" value={name} type="text" placeholder="Name" onChange={(e) => setName(e.target.value)}></input> <br></br>
 
-                <input value={email} type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)}></input> <br></br>
+                <input className="signup-email" value={email} type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)}></input> <br></br>
 
-                <input value={password} type="password" placeholder="Password" onChange={(e) => (setPassword(e.target.value))}></input> <br></br>
+                <input className="signup-password" value={password} type="password" placeholder="Password" onChange={(e) => (setPassword(e.target.value))}></input> <br></br>
 
-                <input type="submit" value="Register"></input>
+                <input className="signup-btn" type="submit" value="Register"></input>
             </form>
         </div>
 

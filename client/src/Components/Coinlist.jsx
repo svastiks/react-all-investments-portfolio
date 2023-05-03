@@ -47,7 +47,7 @@ const Coinlist = (coin) => {
                     </Col>
                     <Col xs={12}>
                         <button id='add-btn' className='trackerlist-btn' onClick={() => send(coin)} disabled={isDisabled}>Track</button>
-                        <button id='remove-btn' className='trackerlist-btn' onClick={() => removeCoin(coin.id)} disabled={!isDisabled}>Remove</button>
+                        <button id='remove-btn' className='trackerlist-delete-btn' onClick={() => removeCoin(coin.id)} disabled={!isDisabled}>Remove</button>
                     </Col>
                 </Row>
                 {/* <Col xs={2}>
