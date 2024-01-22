@@ -41,7 +41,7 @@ export default function Home() {
     return (
 
         <div className="signup-cont">
-            <h1 className="signup-header">Register</h1>
+            <h1 className="signup-header">Register (Sign up might take long as this project is using free hosting services)</h1>
             <form onSubmit={registerUser}>
                 <input className="signup-name" value={name} type="text" placeholder="Name" onChange={(e) => setName(e.target.value)}></input> <br></br>
 
