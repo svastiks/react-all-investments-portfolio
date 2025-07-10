@@ -14,7 +14,7 @@ export default function Home() {
     async function registerUser(event) {
         event.preventDefault();
 
-        const res = await fetch(`http://localhost:1337/api/register`, {
+        const res = await fetch(`${process.env.REACT_APP_API_URL}/api/register`, {
             method: 'POST',
             headers: {
                 "Content-Type": 'application/json',
