@@ -39,30 +39,23 @@ export default function Home() {
     }
 
     return (
-
-        <div className="signup-cont">
-            <h1 className="signup-header">Register (Sign up might take long as this project is using free hosting services)</h1>
-            <form onSubmit={registerUser}>
-                <input className="signup-name" value={name} type="text" placeholder="Name" onChange={(e) => setName(e.target.value)}></input> <br></br>
-
-                <input className="signup-email" value={email} type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)}></input> <br></br>
-
-                <input className="signup-password" value={password} type="password" placeholder="Password" onChange={(e) => (setPassword(e.target.value))}></input> <br></br>
-
-                <input className="signup-btn" type="submit" value="Register"></input>
-
-                <div className='after-signup'>
-
-                    {fail ? null : <h5 className='error-create'>An account with this email already exists.</h5>}
-
-                    {success ? <h3 className='success-create'>Account was created successfully.</h3> : null}
-                    {success ? <Link className='sucess-links' to='/login'>LOGIN INTO YOUR ACCOUNT</Link> : null}
-                    {success ? <div>or</div> : null}
-                    {success ? <Link className='sucess-links' to='/'>EXPLORE CRYPTO</Link> : null}
-
-                </div>
-            </form>
-        </div>
-
+        <main className="auth-modern-bg">
+            <div className="auth-card">
+                <form onSubmit={registerUser} className="auth-form">
+                    <h2 className="auth-title">Register</h2>
+                    <input className="auth-input" value={name} type="text" placeholder="Name" onChange={(e) => setName(e.target.value)} />
+                    <input className="auth-input" value={email} type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+                    <input className="auth-input" value={password} type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
+                    <button className="auth-btn" type="submit">Register</button>
+                    <div className='after-signup'>
+                        {fail ? null : <div className='auth-error'>An account with this email already exists.</div>}
+                        {success ? <div className='auth-success'>Account was created successfully.</div> : null}
+                        {success ? <Link className='auth-link' to='/login'>LOGIN INTO YOUR ACCOUNT</Link> : null}
+                        {success ? <div className='auth-or'>or</div> : null}
+                        {success ? <Link className='auth-link' to='/'>EXPLORE CRYPTO</Link> : null}
+                    </div>
+                </form>
+            </div>
+        </main>
     )
 }

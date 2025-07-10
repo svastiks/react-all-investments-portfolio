@@ -52,48 +52,45 @@ const TrackerList = (props) => {
     window.location.reload(true);
   }
 
+  // Filter out invalid/corrupt entries
+  const validDataArray = dataArray.filter(data =>
+    data && data.image && data.name && data.symbol && typeof data.price === 'number' && !isNaN(data.price)
+  );
+
   return (
-
-    <div className="tracker-list-cont">
-      <div className="tracker-list">
-        <div className='tracked-heading'>
-          TRACKED USER INVESTMENTS
-        </div>
-        {dataArray.map((data) => {
-          return (
-            <Container className='mapped-list' id={data.name}>
-              <Row className='list-row'>
-                <Col className='list-image'>
-                  <img className='tracker-coinImage' src={data.image} alt='coinImage'></img>
-                </Col>
-                <Col className='list-name'>
-                  {data.name}
-                </Col>
-                <Col className='list-symbol'>
-                  {data.symbol}
-                </Col>
-                <Col className='list-price'>
-                  {data.price.toLocaleString()}
-                </Col>
-                {/* <Col>
-                  {data.marketCap.toLocaleString()}
-                </Col> */}
-                <Col>
-                  <button className='listRemove' onClick={() => removeCoin(data.name)}>Remove</button>
-                </Col>
-                <Row>
-                  <Chart
-                    key={data.name}
-                    id={data.name}
-                  />
-                </Row>
-              </Row>
-            </Container>
-          )
-        })}
-
+    <main className="trackerlist-modern">
+      <div className="trackerlist-header">Tracked User Investments</div>
+      <div className="trackerlist-list">
+        {validDataArray.length === 0 ? (
+          <div className="trackerlist-empty">No investments tracked yet.</div>
+        ) : (
+          validDataArray.map((data) => (
+            <div className="trackerlist-card" key={data.name}>
+              <div className="trackerlist-card-main">
+                <div className="trackerlist-card-image">
+                  <img className="tracker-coinImage" src={data.image} alt="coinImage" />
+                </div>
+                <div className="trackerlist-card-info">
+                  <div className="trackerlist-card-title">{data.name} <span className="trackerlist-card-symbol">({data.symbol})</span></div>
+                  <div className="trackerlist-card-meta">
+                    <span className="trackerlist-card-label">Price</span>
+                    <span className="trackerlist-card-value">{typeof data.price === 'number' && !isNaN(data.price) ? data.price.toLocaleString() + ' CAD' : '-'}</span>
+                  </div>
+                </div>
+                <div className="trackerlist-card-actions">
+                  <button className="trackerlist-btn-remove" onClick={() => removeCoin(data.name)}>Remove</button>
+                </div>
+              </div>
+              {data.name && (
+                <div className="trackerlist-card-chart">
+                  <Chart key={data.name} id={data.name} />
+                </div>
+              )}
+            </div>
+          ))
+        )}
       </div>
-    </div>
+    </main>
   )
 }
 

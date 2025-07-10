@@ -58,28 +58,21 @@ export default function Login() {
   }
 
   return (
-
-    <div className='login-body'>
-
-      <form onSubmit={loginUser}>
-        <div className="login-cont">
-          <img className='login-logo' src='Images/logo.png' alt='logo'></img>
-
-          {/* <h1 className="login-heading">Login</h1> */}
-          <input className="email" value={email} type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)}></input> <br></br>
-
-          <input className="password" value={password} type="password" placeholder="Password" onChange={(e) => (setPassword(e.target.value))}></input> <br></br>
-
-          <input className="login-btn" type="submit" value="Login"></input>
-
-          {login ? null : <h4 className="login-unsuccessful">Email or password entered is incorrect. <br></br>Please try again.</h4>}
-          {loginDone ? <h2 className='login-successful'>LOGIN SUCCESSFUL!</h2> : null}
-
-          <Link className='no-account' to='/register'>Don't have an account? Sign up here</Link>
-        </div>
-      </form>
-
-    </div >
-
+    <main className="auth-modern-bg">
+      <div className="auth-card">
+        <form onSubmit={loginUser} className="auth-form">
+          <div className="auth-logo-wrap">
+            <img className='auth-logo' src='Images/logo.png' alt='logo' />
+          </div>
+          <h2 className="auth-title">Login</h2>
+          <input className="auth-input" value={email} type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+          <input className="auth-input" value={password} type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
+          <button className="auth-btn" type="submit">Login</button>
+          {login ? null : <div className="auth-error">Email or password entered is incorrect. Please try again.</div>}
+          {loginDone ? <div className='auth-success'>LOGIN SUCCESSFUL!</div> : null}
+          <Link className='auth-link' to='/register'>Don't have an account? Sign up here</Link>
+        </form>
+      </div>
+    </main>
   )
 }
