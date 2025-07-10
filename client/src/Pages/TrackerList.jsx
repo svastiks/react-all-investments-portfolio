@@ -36,7 +36,7 @@ const TrackerList = (props) => {
       }
     }
     setDataArray(newDataArray);
-  }, [])
+  }, [allItems]);
 
   //console.log(dataArray);
 

@@ -38,7 +38,7 @@ const Chart = (props) => {
                 setChart(res.data.prices);
                 console.log(res.data.prices);
             }).catch(error => console.log(error));
-    }, []);
+    }, [props.id]);
 
     if (chartData == null) {
         return <div>LOADING...</div>

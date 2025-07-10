@@ -10,7 +10,7 @@ export default function Navbar() {
     useEffect(() => {
         const loginStatus = sessionStorage.getItem('Login') === 'LoggedIn';
         setLoginStatus(loginStatus)
-    })
+    }, []);
 
     const logout = () => {
         sessionStorage.clear();
