@@ -1,4 +1,3 @@
-import useAxios from "../hooks/useAxios"
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import CoinList from '../Components/Coinlist'

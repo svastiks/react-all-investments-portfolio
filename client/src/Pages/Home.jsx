@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import Trending from '../Components/Trending'
 import Search from '../Components/Search'
 import { Link } from 'react-router-dom'
 

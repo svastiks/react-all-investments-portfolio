@@ -1,9 +1,5 @@
-import React, { createContext, useEffect, useState } from 'react'
-import axios, { all } from 'axios'
-import Container from 'react-bootstrap/Container';
+import React, { useEffect, useState } from 'react'
 import Chart from '../Components/Chart'
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
 const TrackerList = (props) => {
 
@@ -20,8 +16,6 @@ const TrackerList = (props) => {
   const allItems = { ...localStorage };
   // const item = JSON.parse(allItems);
   //console.log(allItems);
-  const itemKeys = Object.keys(allItems);
-  //console.log(itemKeys);
 
   const [dataArray, setDataArray] = useState([])
 

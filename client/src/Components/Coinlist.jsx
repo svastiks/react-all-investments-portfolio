@@ -1,10 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react'
-import { GlobalContext } from '../context/GlobalState';
-import TrackerList from '../Pages/TrackerList'
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import { isDisabled } from '@testing-library/user-event/dist/utils';
+import React, { useState, useEffect } from 'react'
 
 
 const Coinlist = (coin) => {

@@ -1,5 +1,4 @@
 import React from 'react'
-import useAxios from '../hooks/useAxios'
 
 export default function Trending() {
 
