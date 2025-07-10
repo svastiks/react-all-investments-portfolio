@@ -3,23 +3,10 @@ import Chart from '../Components/Chart'
 
 const TrackerList = (props) => {
 
-  // const [coins, setCoins] = useState([]);
-
-  // useEffect(() => {
-  //   axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=cad&order=market_cap_desc&per_page=100&page=1&sparkline=false&locale=en`)
-  //     .then(res => {
-  //       setCoins(res.data);
-  //       console.log(res.data);
-  //     }).catch(error => console.log(error))
-  // }, []);
-
-  const allItems = { ...localStorage };
-  // const item = JSON.parse(allItems);
-  //console.log(allItems);
-
   const [dataArray, setDataArray] = useState([])
 
   useEffect(() => {
+    const allItems = { ...localStorage };
     const newDataArray = [];
     for (const key in allItems) {
       if (allItems.hasOwnProperty(key)) {
@@ -36,9 +23,7 @@ const TrackerList = (props) => {
       }
     }
     setDataArray(newDataArray);
-  }, [allItems]);
-
-  //console.log(dataArray);
+  }, []);
 
   const removeCoin = (id) => {
     localStorage.removeItem(id);
