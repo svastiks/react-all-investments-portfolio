@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { FaHandHoldingUsd } from 'react-icons/fa';
 
 export default function Navbar() {
 
@@ -20,17 +21,20 @@ export default function Navbar() {
 
     return (
 
-        <div className="navbar">
-            <div className="navbar-links">
-                <Link to=''><img className='main-logo' src='Images/logo.png' alt='logo'></img></Link>
-                <Link to='/'>Home</Link>
-                <Link to='/trackerlist'>TrackList</Link>
-                <Link to='/stocks'>Stocks</Link>
-                {loginStatus ? null : <Link to='/register'>Sign Up</Link>}
-                {loginStatus ? null : <Link to='/login'>Login</Link>}
-                {loginStatus ? <Link className="logoutLink" to='/' onClick={logout}>Logout<img className='logout-icon' src='Images/logout-icon.svg' alt='logout-icon'></img></Link> : null}
+        <nav className="navbar-modern">
+            <div className="navbar-content">
+                <Link to='/' className='navbar-logo'>
+                    <FaHandHoldingUsd size={32} />
+                </Link>
+                <div className="navbar-links">
+                    <Link to='/'>Home</Link>
+                    <Link to='/trackerlist'>TrackList</Link>
+                    {loginStatus ? null : <Link to='/register'>Sign Up</Link>}
+                    {loginStatus ? null : <Link to='/login'>Login</Link>}
+                    {loginStatus ? <button className="logout-btn" onClick={logout}>Logout</button> : null}
+                </div>
             </div>
-        </div>
+        </nav>
 
     )
 

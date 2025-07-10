@@ -42,47 +42,28 @@ const Coinlist = (coin) => {
     }, [coin.id])
 
     return (
-
-        <Container className='coin-maincont'>
-            <Row className='coin-listsubcont'>
-                <Row>
-                    <Col className='coinlist-image' xs={2}>
-                        <img className='coin-image' src={coin.image} alt='symbol'></img>
-                    </Col>
-                    <Col className='coinlist-name' xs={2}>
-                        <p>{coin.name}({coin.symbol})</p>
-                    </Col>
-                    <Col xs={12}>
-                        <button id='add-btn' className={isDisabled ? "disabled-button" : "trackerlist-btn"} onClick={() => send(coin)} disabled={isDisabled}>Track</button>
-                        <button id='remove-btn' className={isDisabledRemove ? "disabled-button-remove" : "trackerlist-delete-btn"} onClick={() => removeCoin(coin.id)} disabled={!isDisabled}>Remove</button>
-                    </Col>
-                </Row>
-                {/* <Col xs={2}>
-                    <p>{coin.symbol}</p>
-                </Col> */}
-                <Row>
-                    <Col className='coin-price' xs={5}>
-                        <span className='price-heading'>Price</span>
-                        <br />
-                        {coin.price.toLocaleString()} CAD
-                    </Col>
-                    <Col className='coin-price' xs={4}>
-                        <span className='marketcap-heading'>Market Cap</span>
-                        <br />
-                        {coin.volume.toLocaleString()}
-                    </Col>
-                </Row>
-                {/* <Col xs={2}>
-                    <p>{coin.volume.toLocaleString()}</p>
-                </Col> */}
-            </Row>
-            {/* <Row>
-                <div className="trackerlist-btn">
-                    <button onClick={() => send(coin.id)}>Add to Tracker List</button>
+        <div className='coin-card-modern'>
+            <div className='coin-card-main'>
+                <div className='coin-card-image'>
+                    <img className='coin-image' src={coin.image} alt='symbol' />
                 </div>
-            </Row> */}
-        </Container >
-        // </Container>
+                <div className='coin-card-info'>
+                    <div className='coin-card-title'>{coin.name} <span className='coin-card-symbol'>({coin.symbol})</span></div>
+                    <div className='coin-card-meta'>
+                        <span className='coin-card-label'>Price</span>
+                        <span className='coin-card-value'>{coin.price.toLocaleString()} CAD</span>
+                    </div>
+                    <div className='coin-card-meta'>
+                        <span className='coin-card-label'>Market&nbsp;Cap</span>
+                        <span className='coin-card-value'>{coin.volume.toLocaleString()}</span>
+                    </div>
+                </div>
+                <div className='coin-card-actions'>
+                    <button id='add-btn' className={isDisabled ? "coin-btn-disabled" : "coin-btn-track"} onClick={() => send(coin)} disabled={isDisabled}>Track</button>
+                    <button id='remove-btn' className={isDisabledRemove ? "coin-btn-disabled-remove" : "coin-btn-remove"} onClick={() => removeCoin(coin.id)} disabled={!isDisabled}>Remove</button>
+                </div>
+            </div>
+        </div>
     )
 }
 

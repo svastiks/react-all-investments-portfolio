@@ -35,19 +35,26 @@ export default function Search() {
     return (
         <div className="search-coin-cont">
             <div className="search-bar">
-                <input type='text' placeholder="Search for coins" className="coin-search" onChange={handleChange}></input>
+                <div className="search-input-wrapper">
+                    <span className="search-icon">
+                        {/* SVG search icon */}
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="9" cy="9" r="7" stroke="#94a3b8" strokeWidth="2"/>
+                            <line x1="14.4142" y1="14" x2="18" y2="17.5858" stroke="#94a3b8" strokeWidth="2" strokeLinecap="round"/>
+                        </svg>
+                    </span>
+                    <input type='text' placeholder="Search for coins" className="search-input-modern" onChange={handleChange}></input>
+                </div>
             </div>
 
-            <div className="coins">
+            <div className="coins-grid">
 
                 {apiStatus ?
 
                     filteredCoins.map(coin => {
                         return (
-                            <div>
-
+                            <div key={coin.id}>
                                 <CoinList
-                                    key={coin.id}
                                     id={coin.id}
                                     image={coin.image}
                                     name={coin.name}
