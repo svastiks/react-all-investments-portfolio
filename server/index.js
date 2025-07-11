@@ -66,6 +66,10 @@ app.post('/api/login', async (req, res) => {
 
 }
 )
+app.get('/ping', (req, res) => {
+  console.log('Ping endpoint was hit, server is now awake!');
+  res.status(200).send('pong');
+});
 app.listen(1337, () => {
   console.log('Server started on 1337')
 })
