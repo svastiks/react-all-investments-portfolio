@@ -11,17 +11,6 @@ export default function Home() {
     const [nameExists, setName] = useState('');
 
     useEffect(() => {
-        // Smart backend ping: only once every 10 minutes
-        const lastPing = localStorage.getItem('lastPing');
-        const now = Date.now();
-        const TEN_MINUTES = 10 * 60 * 1000;
-        if (!lastPing || now - parseInt(lastPing, 10) > TEN_MINUTES) {
-            fetch(`${process.env.REACT_APP_API_URL}/ping`).catch(() => {});
-            localStorage.setItem('lastPing', now.toString());
-        }
-    }, []);
-
-    useEffect(() => {
         const nameExists = sessionStorage.getItem('name');
         setName(nameExists);
     }, [])
