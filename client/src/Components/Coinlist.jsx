@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react'
-
+import { useNavigate } from 'react-router-dom';
 
 const Coinlist = (coin) => {
-
     const [isDisabled, setDisabled] = useState('');
     const [isDisabledRemove, setDisabledRemove] = useState('');
-
+    const navigate = useNavigate();
 
     const send = () => {
         const array = [coin.id, coin.image, coin.name, coin.symbol, coin.price, coin.volume];
@@ -54,6 +53,9 @@ const Coinlist = (coin) => {
                 </div>
                 <div className='coin-card-actions'>
                     <button id='add-btn' className={isDisabled ? "coin-btn-disabled" : "coin-btn-track"} onClick={() => send(coin)} disabled={isDisabled}>Track</button>
+                    <button className='coin-btn-profit' onClick={() => navigate(`/calculator?coin=${coin.id}`)}>
+                        Profit?
+                    </button>
                     <button id='remove-btn' className={isDisabledRemove ? "coin-btn-disabled-remove" : "coin-btn-remove"} onClick={() => removeCoin(coin.id)} disabled={!isDisabled}>Remove</button>
                 </div>
             </div>

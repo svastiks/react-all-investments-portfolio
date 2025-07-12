@@ -29,6 +29,7 @@ export default function Navbar() {
                 <div className="navbar-links">
                     <Link to='/'>Home</Link>
                     <Link to='/trackerlist'>TrackList</Link>
+                    <Link to='/calculator'>Calculator</Link>
                     {loginStatus ? null : <Link to='/register'>Sign Up</Link>}
                     {loginStatus ? null : <Link to='/login'>Login</Link>}
                     {loginStatus ? <button className="logout-btn" onClick={logout}>Logout</button> : null}

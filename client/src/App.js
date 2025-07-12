@@ -6,6 +6,7 @@ import Itemcard from './Pages/Itemcard'
 import TrackerList from './Pages/TrackerList'
 import Login from './Pages/Login'
 import Signup from './Pages/Signup'
+import ProfitCalculatorPage from './Pages/ProfitCalculatorPage'
 import { useEffect } from 'react';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/coin/:id" element={<Itemcard />} />
         <Route path="/trackerlist" element={<TrackerList />} />
+        <Route path="/calculator" element={<ProfitCalculatorPage />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Signup />} />
       </Routes>

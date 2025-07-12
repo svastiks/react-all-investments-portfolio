@@ -647,7 +647,19 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
-  margin-left: 1.5rem;
+  align-items: center;
+  width: 100%;
+  margin-left: 0;
+}
+
+@media (max-width: 700px) {
+  .coin-card-actions {
+    flex-direction: column;
+    gap: 0.7rem;
+    align-items: center;
+    margin-left: 0;
+    width: 100%;
+  }
 }
 
 .coin-btn-track {
@@ -664,6 +676,7 @@ body {
 .coin-btn-track:hover {
   background: #16a34a;
 }
+
 .coin-btn-remove {
   background: #ef4444;
   color: #fff;
@@ -677,6 +690,23 @@ body {
 }
 .coin-btn-remove:hover {
   background: #dc2626;
+}
+
+.coin-btn-profit {
+  background: #f3f4f6;
+  color: #2563eb;
+  border: 1.5px solid #c7d2fe;
+  border-radius: 8px;
+  padding: 0.5rem 1.2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.coin-btn-profit:hover {
+  background: #2563eb;
+  color: #fff;
+  border-color: #2563eb;
 }
 .coin-btn-disabled, .coin-btn-disabled-remove {
   opacity: 0.4;
@@ -1045,4 +1075,598 @@ body {
 .home-signin-better:hover {
   background: #1d4ed8;
   box-shadow: 0 4px 16px rgba(37,99,235,0.13);
+}
+
+/* Profit Calculator Styles */
+/* --- Profit Calculator: App-Matching Styles --- */
+.profit-calculator-page {
+    min-height: 100vh;
+    background: #f7f8fa; /* match homepage */
+    padding: 2.5rem 0;
+}
+
+.page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.profit-calculator {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 2.5rem 2.2rem 2.2rem 2.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.calculator-header {
+    background: none;
+    color: #1a202c;
+    padding: 0;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.calculator-icon {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    color: #2563eb;
+    opacity: 1;
+}
+
+.calculator-header h2 {
+    margin: 0 0 0.3rem 0;
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: #1a202c;
+}
+
+.calculator-header p {
+    margin: 0;
+    opacity: 0.85;
+    font-size: 1.01rem;
+    color: #64748b;
+}
+
+.calculator-tabs {
+    display: flex;
+    background: #f3f4f6;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    width: 100%;
+    overflow: hidden;
+    border: 1.5px solid #e5e7eb;
+}
+
+.tab {
+    flex: 1;
+    padding: 0.7rem 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.01rem;
+    font-weight: 600;
+    color: #64748b;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    border-radius: 0;
+}
+
+.tab.active {
+    background: #fff;
+    color: #2563eb;
+    box-shadow: 0 2px 8px rgba(37,99,235,0.04);
+    font-weight: 700;
+}
+
+.tab:not(.active):hover {
+    background: #f1f5f9;
+    color: #2563eb;
+}
+
+.calculator-form {
+    width: 100%;
+    padding: 0;
+}
+
+.form-row {
+    display: flex;
+    gap: 1.2rem;
+    margin-bottom: 1.2rem;
+}
+.form-row .form-group {
+    flex: 1;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.4rem;
+    font-size: 0.97rem;
+}
+
+.form-group input {
+    padding: 0.65rem 1rem;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: #f7f8fa;
+    color: #22223b;
+    transition: border 0.2s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #2563eb;
+    background: #fff;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.btn-reset {
+    background: #6b7280;
+    color: white;
+    border: none;
+    padding: 0.7rem 2.2rem;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 1.01rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-reset:hover {
+    background: #374151;
+}
+
+.calculator-results {
+    width: 100%;
+    padding: 0;
+    background: none;
+    border-top: none;
+    margin-top: 2rem;
+}
+
+.calculator-results h3 {
+    margin: 0 0 1.1rem 0;
+    color: #1a202c;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.results-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    margin-bottom: 1.2rem;
+}
+
+.result-card {
+    background: #fff;
+    padding: 1.1rem 1.2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    border-left: 4px solid #e5e7eb;
+    transition: box-shadow 0.2s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.result-card.primary {
+    border-left-color: #2563eb;
+    background: #f3f4f6;
+}
+
+.result-card.profit {
+    border-left-color: #10b981;
+    background: #f0fdf4;
+}
+
+.result-card.loss {
+    border-left-color: #ef4444;
+    background: #fef2f2;
+}
+
+.result-label {
+    font-size: 0.93rem;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.result-value {
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: #1a202c;
+}
+
+.result-card.profit .result-value {
+    color: #059669;
+}
+
+.result-card.loss .result-value {
+    color: #dc2626;
+}
+
+.results-section {
+    margin-top: 1.2rem;
+}
+
+.results-section h4 {
+    margin: 0 0 0.7rem 0;
+    color: #1a202c;
+    font-size: 1.01rem;
+    font-weight: 600;
+}
+
+.risk-analysis {
+    background: #f7f8fa;
+    padding: 1rem 1.2rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.risk-analysis h4 {
+    margin: 0 0 0.7rem 0;
+    color: #1a202c;
+    font-size: 1.01rem;
+    font-weight: 600;
+}
+
+.risk-metrics {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.risk-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f3f4f6;
+}
+.risk-item:last-child {
+    border-bottom: none;
+}
+.risk-label {
+    font-weight: 600;
+    color: #374151;
+}
+.risk-value {
+    font-weight: 700;
+    color: #1a202c;
+}
+.risk-level {
+    padding: 0.18rem 0.7rem;
+    border-radius: 20px;
+    font-size: 0.89rem;
+    font-weight: 600;
+}
+.risk-level.low {
+    background: #d1fae5;
+    color: #065f46;
+}
+.risk-level.medium {
+    background: #fef3c7;
+    color: #92400e;
+}
+.risk-level.high {
+    background: #fee2e2;
+    color: #991b1b;
+}
+.calculator-info {
+    background: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+    margin-top: 1.2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+}
+.calculator-info svg {
+    color: #2563eb;
+    margin-top: 0.1rem;
+    flex-shrink: 0;
+}
+.calculator-info p {
+    margin: 0;
+    color: #1e40af;
+    font-size: 0.89rem;
+    line-height: 1.5;
+}
+@media (max-width: 700px) {
+    .profit-calculator {
+        max-width: 98vw;
+        padding: 1.2rem 0.5rem;
+    }
+    .form-row {
+        flex-direction: column;
+        gap: 0.7rem;
+    }
+    .calculator-tabs {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .page-container {
+        padding: 0 1rem;
+    }
+    
+    .calculator-header {
+        padding: 1.5rem 1rem;
+    }
+    
+    .calculator-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .calculator-form {
+        padding: 1.5rem;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .calculator-results {
+        padding: 1.5rem;
+    }
+    
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tab {
+        padding: 0.75rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .risk-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}
+
+/* --- Profit Calculator Dropdown Styles --- */
+.coin-dropdown-wrapper {
+  position: relative;
+  width: 100%;
+}
+.coin-dropdown-list {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 100%;
+  z-index: 10;
+  background: #fff;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 8px;
+  max-height: 260px;
+  overflow-y: auto;
+  margin-top: 4px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+.coin-dropdown-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-bottom: 1px solid #f3f4f6;
+  background: #fff;
+  transition: background 0.15s;
+}
+.coin-dropdown-item:hover {
+  background: #f3f4f6;
+}
+
+.coin-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.7rem;
+}
+.coin-header-image {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: contain;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.coin-header-title {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+.coin-header-name {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #1a202c;
+}
+.coin-header-symbol {
+  font-size: 1.1rem;
+  color: #64748b;
+  font-weight: 600;
+}
+.coin-card-info-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2.2rem;
+  gap: 2.5rem;
+}
+.coin-card-info-labels {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  min-width: 110px;
+}
+.coin-card-info-values {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-end;
+}
+.coin-card-value-price {
+  color: #22c55e;
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+.coin-card-value-marketcap {
+  color: #1a202c;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.coin-card-actions-row {
+  display: flex;
+  flex-direction: row;
+  gap: 1.2rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+.coin-btn-track, .coin-btn-profit, .coin-btn-remove {
+  width: 200px;
+  text-align: center;
+}
+
+.coin-card-modern-example {
+  background: #fff;
+  border-radius: 1.25rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  padding: 1.5rem 2rem 2rem 2rem;
+  max-width: 480px;
+  width: 100%;
+  margin: 0 auto 2.5rem auto;
+}
+.coin-card-header-example {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.2rem;
+}
+.coin-card-logo-example {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  object-fit: contain;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+.coin-card-title-example {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a202c;
+}
+.coin-card-symbol-example {
+  font-size: 1.25rem;
+  color: #64748b;
+  font-weight: 400;
+}
+.coin-card-info-section-example {
+  margin-bottom: 2.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+.coin-card-info-row-example {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  white-space: nowrap;
+}
+.coin-card-label-example {
+  color: #64748b;
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+.coin-card-value-price-example {
+  display: inline;
+  white-space: nowrap;
+}
+.coin-card-value-marketcap-example {
+  color: #1a202c;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.coin-card-btn-row-example {
+  display: flex;
+  flex-direction: row;
+  gap: 1.2rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+.coin-btn-track-example {
+  background: #22c55e;
+  color: #fff;
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 1.25rem;
+  padding: 0.8rem 0;
+  cursor: pointer;
+  flex: 1 1 0;
+  transition: background 0.18s;
+}
+.coin-btn-track-example:hover {
+  background: #16a34a;
+}
+.coin-btn-profit-example {
+  background: #fff;
+  color: #2563eb;
+  border: 2px solid #2563eb;
+  border-radius: 0.75rem;
+  font-weight: 500;
+  font-size: 1.25rem;
+  padding: 0.8rem 0;
+  cursor: pointer;
+  flex: 1 1 0;
+  transition: background 0.18s, color 0.18s;
+}
+.coin-btn-profit-example:hover {
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+.coin-btn-remove-example {
+  background: #ef4444;
+  color: #fff;
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-size: 1.25rem;
+  padding: 0.8rem 0;
+  cursor: pointer;
+  flex: 1 1 0;
+  transition: background 0.18s;
+}
+.coin-btn-remove-example:hover {
+  background: #b91c1c;
 }
