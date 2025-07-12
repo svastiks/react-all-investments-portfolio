@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { FaCalculator, FaChartLine, FaDollarSign, FaPercentage, FaInfoCircle, FaChevronDown, FaSearch } from 'react-icons/fa';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { FaCalculator, FaChartLine, FaDollarSign, FaInfoCircle, FaChevronDown, FaSearch } from 'react-icons/fa';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 
@@ -124,7 +124,7 @@ const ProfitCalculator = () => {
     }
   }, [selectedCoin]);
 
-  const calculateProfit = () => {
+  const calculateProfit = useCallback(() => {
     const { buyPrice, sellPrice, quantity, fees, taxRate } = formData;
     if (!buyPrice || !sellPrice || !quantity) {
       setResults(null);
@@ -163,11 +163,11 @@ const ProfitCalculator = () => {
       maxLoss,
       riskRewardRatio
     });
-  };
+  }, [formData]);
 
   useEffect(() => {
     calculateProfit();
-  }, [formData]);
+  }, [calculateProfit]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
