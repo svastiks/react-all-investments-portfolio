@@ -86,6 +86,7 @@ const ProfitCalculator = () => {
   const [selectedCoin, setSelectedCoin] = useState(null);
   const [loadingPrice, setLoadingPrice] = useState(false);
   const dropdownRef = useRef();
+  const resultsRef = useRef();
   const query = useQuery();
 
   useEffect(() => {
@@ -168,6 +169,15 @@ const ProfitCalculator = () => {
   useEffect(() => {
     calculateProfit();
   }, [calculateProfit]);
+
+  useEffect(() => {
+    if (results && resultsRef.current) {
+      resultsRef.current.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start' 
+      });
+    }
+  }, [results]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -374,16 +384,10 @@ const ProfitCalculator = () => {
             </div>
           </div>
         )}
-
-        <div className="form-actions">
-          <button className="btn-reset" onClick={resetCalculator}>
-            Reset
-          </button>
-        </div>
       </div>
 
       {results && (
-        <div className="calculator-results">
+        <div className="calculator-results" ref={resultsRef}>
           <h3>Results</h3>
           
           <div className="results-grid">
@@ -397,10 +401,10 @@ const ProfitCalculator = () => {
               <div className="result-value">{formatCurrency(results.totalValue)}</div>
             </div>
             
-            <div className={`result-card ${results.grossProfit >= 0 ? 'profit' : 'loss'}`}>
-              <div className="result-label">Gross Profit/Loss</div>
+            <div className={`result-card ${results.percentageGain >= 0 ? 'profit' : 'loss'}`}>
+              <div className="result-label">Percentage Gain/Loss</div>
               <div className="result-value">
-                {results.grossProfit >= 0 ? '+' : ''}{formatCurrency(results.grossProfit)}
+                {results.percentageGain >= 0 ? '+' : ''}{formatPercentage(results.percentageGain)}
               </div>
             </div>
             
@@ -408,13 +412,6 @@ const ProfitCalculator = () => {
               <div className="result-label">Net Profit/Loss</div>
               <div className="result-value">
                 {results.netProfit >= 0 ? '+' : ''}{formatCurrency(results.netProfit)}
-              </div>
-            </div>
-            
-            <div className={`result-card ${results.percentageGain >= 0 ? 'profit' : 'loss'}`}>
-              <div className="result-label">Percentage Gain/Loss</div>
-              <div className="result-value">
-                {results.percentageGain >= 0 ? '+' : ''}{formatPercentage(results.percentageGain)}
               </div>
             </div>
             
@@ -490,6 +487,12 @@ const ProfitCalculator = () => {
               Always consult with a financial advisor for investment decisions. 
               Tax calculations are simplified and may not reflect your specific tax situation.
             </p>
+          </div>
+
+          <div className="form-actions" style={{ marginTop: '2rem', textAlign: 'center' }}>
+            <button className="btn-reset" onClick={resetCalculator}>
+              Reset Calculator
+            </button>
           </div>
         </div>
       )}
